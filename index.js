@@ -16,6 +16,19 @@ function clear() {
 
 function calculate() {
     let string = displayArray.join('');
+    let expressions = [];
+    let counter = 0;
+    if (string.includes('*')) {
+        // gets a set of two numbers, takes the first set if multiples
+        let index = string.indexOf('*');
+        let start = index - 1;
+        let end = index + 2;
+        let expr = string.substring(start, end);
+        expressions.push(expr);
+    }
+    
+
+
     let prob = Function('return ' + string)();
     clear();
     res.textContent = prob;
